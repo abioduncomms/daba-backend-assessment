@@ -44,6 +44,11 @@ Introduce your projects by taking a screenshot, video recordings or a gif. Try t
 - Where can I see your demo?
 - What was your experience building it.
 
+
+### Figma Design
+
+![figma](https://www.figma.com/file/ZM0DPZbzK39o3rqwiaOPTD/Authentication-App)
+
 ### Built With
 
 <!-- This section should list any major frameworks that you built your project using. Here are a few examples.-->
