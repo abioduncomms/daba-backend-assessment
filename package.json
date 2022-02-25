@@ -1,0 +1,40 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abiodun-michael/daba-backend-assessment.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/abiodun-michael/daba-backend-assessment/issues"
+  },
+  "homepage": "https://github.com/abiodun-michael/daba-backend-assessment#readme",
+  "dependencies": {
+    "apollo-server-core": "^3.6.3",
+    "apollo-server-express": "^3.6.3",
+    "bcrypt": "^5.0.1",
+    "cloudinary": "^1.28.1",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "graphql": "^16.3.0",
+    "graphql-tools": "^8.2.0",
+    "graphql-upload": "^13.0.0",
+    "ioredis": "^4.28.5",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.17.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
