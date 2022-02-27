@@ -59,11 +59,13 @@ const authResolvers = {
     Query:{
 
         getMyProfile:async(_,__,{user})=>{
-            if(!user) return
+            if(!user) throw new Error("Forbidden! You must be loggedin to access this resource")
             return await Auth.findOne({where:{id:user.id}})
         },
 
-        logout:async(_,__,{res})=>{
+        logout:async(_,__,{res,uuid})=>{
+            if(!user) throw new Error("Forbidden! You must be loggedin to access this resource")
+            redis.del(uuid)
             res.cookie('uuid', '', {
                 httpOnly: true,
                 maxAge: new Date(),
@@ -94,15 +96,18 @@ const authResolvers = {
             
         },
         updateProfile:async(_,{input},{user})=>{
+            if(!user) throw new Error("Forbidden! You must be loggedin to access this resource")
             if(input.password){
                 const salt = bcrypt.genSaltSync(10);
                 input.password = bcrypt.hashSync(input.password, salt);
             }
             const [auth] = await Auth.update(input,{where:{id:user?.id}})
             if(auth){
+                const row = await Auth.findOne({where:{id:user.id}})
                 return{
                     message:"Profile info updated",
-                    status:true
+                    status:true,
+                    auth:row
                 }
             }
 
@@ -112,6 +117,7 @@ const authResolvers = {
             }
         },
         changePhoto:async(_,{photo},{user})=>{
+            if(!user) throw new Error("Forbidden! You must be loggedin to access this resource")
             const { createReadStream } = await photo
             const stream = createReadStream()
             const {secure_url} = await uploadImage(stream,"avatar")

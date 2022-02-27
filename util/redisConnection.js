@@ -9,4 +9,6 @@ const redis = new Redis({
     lazyConnect:true
 })
 
+
+
 module.exports = redis

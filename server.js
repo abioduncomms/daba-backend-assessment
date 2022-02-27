@@ -41,6 +41,7 @@ const startApolloServer = async()=>{
       if(uuid){
         const user = await redis.get(uuid)
         req.user = user
+        req.uuid = uuid
       }
 
       next()
@@ -57,7 +58,7 @@ const server = new ApolloServer({
       
       if(req.user) user = JSON.parse(req.user)
 
-      return{req,res,user}
+      return{req,res,user,uuid:req.uuid}
     }
   })
     
