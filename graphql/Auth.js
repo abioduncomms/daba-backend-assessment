@@ -55,6 +55,7 @@ const authTypes = gql`
 
 const authResolvers = {
     Upload: GraphQLUpload,
+
     Query:{
 
         getMyProfile:async(_,__,{user})=>{
@@ -113,7 +114,7 @@ const authResolvers = {
         changePhoto:async(_,{photo},{user})=>{
             const { createReadStream } = await photo
             const stream = createReadStream()
-            const {secure_url} = await uploadImage(stream,"service")
+            const {secure_url} = await uploadImage(stream,"avatar")
             const photoUrl = secure_url
             const [updated] = await Auth.update({photoUrl}, {where:{id:user?.id}})
             if(updated){
