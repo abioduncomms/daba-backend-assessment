@@ -1,0 +1,28 @@
+{
+  "name": "client",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node server",
+    "start": "next start"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@apollo/client": "^3.5.9",
+    "@reduxjs/toolkit": "^1.7.2",
+    "apollo-upload-client": "^17.0.0",
+    "dotenv": "^16.0.0",
+    "formik": "^2.2.9",
+    "graphql": "^16.3.0",
+    "next": "^12.1.0",
+    "nextjs-progressbar": "^0.0.14",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-redux": "^7.2.6",
+    "react-toastify": "^8.2.0",
+    "yup": "^0.32.11"
+  }
+}
