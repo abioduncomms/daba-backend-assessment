@@ -13,6 +13,7 @@ const authTypes = gql`
     type AuthMutationResponse{
         message:String
         status:Boolean
+        profile:Profile
     }
 
     input RegisterOrLoginInput{
@@ -103,11 +104,11 @@ const authResolvers = {
             }
             const [auth] = await Auth.update(input,{where:{id:user?.id}})
             if(auth){
-                const row = await Auth.findOne({where:{id:user.id}})
+                const profile = await Auth.findOne({where:{id:user.id}})
                 return{
                     message:"Profile info updated",
                     status:true,
-                    auth:row
+                    profile
                 }
             }
 
