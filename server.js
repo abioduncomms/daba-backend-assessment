@@ -16,6 +16,7 @@ const PORT = process.env.PORT || 5000
 let allowedOrigins = [
   'https://localhost:3000',
   'https://studio.apollographql.com',
+  "https://daba-app.vercel.app"
 ]
 
 const startApolloServer = async()=>{
