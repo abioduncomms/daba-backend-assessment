@@ -13,7 +13,7 @@ pipeline {
 
 echo y
 
-docker run -d -P --name api daba-api:latest'''
+docker run -d -P daba-api:latest'''
       }
     }
 
