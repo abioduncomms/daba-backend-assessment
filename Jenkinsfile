@@ -3,13 +3,13 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'docker build -t daba-api:latest .'
+        sh 'docker build -t daba-api:$1 .'
       }
     }
 
     stage('Deploy') {
       steps {
-        sh '''echo "Y" | docker system prune -a
+        sh '''
 
 docker run -d -P daba-api:latest'''
       }
