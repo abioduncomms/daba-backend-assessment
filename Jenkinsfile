@@ -3,15 +3,13 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'docker build -t daba-api:$1 .'
+        sh 'docker build -t daba-api .'
       }
     }
 
     stage('Deploy') {
       steps {
-        sh '''
-
-docker run -d -P daba-api:latest'''
+        sh 'docker run -d -P daba-api:latest'
       }
     }
 
