@@ -1,9 +1,9 @@
 pipeline {
   agent any
   stages {
-    stage('Test') {
+    stage('Build') {
       steps {
-        sh 'echo hello world'
+        sh 'docker build -t daba-api .'
       }
     }
 
