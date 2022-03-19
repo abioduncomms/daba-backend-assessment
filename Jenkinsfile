@@ -11,6 +11,8 @@ pipeline {
       steps {
         sh '''docker system prune
 
+echo y
+
 docker run -d -P --name api daba-api:latest'''
       }
     }
