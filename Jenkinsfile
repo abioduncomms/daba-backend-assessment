@@ -9,7 +9,7 @@ pipeline {
 
     stage('Deploy') {
       steps {
-        sh 'docker run -d -p --name api daba-api:latest'
+        sh 'docker run -d -P --name api daba-api:latest'
       }
     }
 
