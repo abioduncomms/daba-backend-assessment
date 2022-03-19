@@ -9,7 +9,9 @@ pipeline {
 
     stage('Deploy') {
       steps {
-        sh 'docker run -d -P --name api daba-api:latest'
+        sh '''docker system prune
+
+docker run -d -P --name api daba-api:latest'''
       }
     }
 
